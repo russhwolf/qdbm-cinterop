@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install qdbm
+        run: |
+          sudo apt-get install libqdbm-dev
+
+      - name: Build and test
+        run: ./gradlew runDebugExecutableLinuxX64 --info --stacktrace
