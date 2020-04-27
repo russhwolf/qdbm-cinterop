@@ -1,4 +1,4 @@
 headers = relic.h depot.h
 package = qdbm.cinterop
 compilerOpts.linux = -I/usr/include/qdbm
-linkerOpts.linux = -Lqdbm -L/usr/lib
+linkerOpts.linux = -lqdbm -L/usr/lib
